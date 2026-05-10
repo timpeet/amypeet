@@ -60,15 +60,15 @@ function PasswordGate({ onUnlock }) {
           whileHover={{ opacity: 0.5 }}
           transition={{ duration: 0.2 }}
           style={{
-            background: 'transparent',
-            border: '1px solid rgba(255,255,255,0.4)',
-            borderRadius: 100,
+            background: '#ffffff',
+            border: 'none',
+            borderRadius: 0,
             padding: '12px 40px',
-            fontSize: 13,
+            fontSize: 14,
             fontWeight: 700,
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            color: '#ffffff',
+            letterSpacing: '0',
+            textTransform: 'none',
+            color: '#0a0a0a',
             cursor: 'none',
             fontFamily: 'inherit',
           }}
