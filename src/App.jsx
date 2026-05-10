@@ -236,7 +236,7 @@ function Gallery({ m }) {
             <div style={{ height: m ? '35vh' : '60vh', maxHeight: m ? 280 : 600 }}>
               <img src={img.src} alt="" style={{ height: '100%', width: 'auto', display: 'block', objectFit: 'cover', userSelect: 'none' }} draggable={false} />
             </div>
-            {caption(img) && <p style={{ fontSize: m ? 11 : 12, fontWeight: 400, color: '#0a0a0a', letterSpacing: '0.01em', lineHeight: 1.4, whiteSpace: 'nowrap' }}>{caption(img)}</p>}
+            {caption(img) && <p style={{ fontSize: m ? 14 : 12, fontWeight: 400, color: '#0a0a0a', letterSpacing: '0.01em', lineHeight: 1.4, whiteSpace: 'nowrap' }}>{caption(img)}</p>}
           </div>
         ))}
       </div>
