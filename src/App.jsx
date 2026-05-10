@@ -176,7 +176,7 @@ function Header({ m }) {
           <p style={{ ...line, whiteSpace: m ? 'normal' : 'nowrap' }}>{cv.title}</p>
           <motion.a href={`tel:${cv.contact.phone}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.phone}</motion.a>
           <motion.a href={`mailto:${cv.contact.email}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.email}</motion.a>
-          <motion.a href="/amy-peet-cv.pdf" download style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
+          <motion.a href="/amy-peet-cv.pdf" download target="_blank" rel="noopener noreferrer" style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
         </motion.div>
       </div>
     </header>
@@ -360,7 +360,7 @@ function Footer({ m }) {
           <p style={{ ...line, whiteSpace: m ? 'normal' : 'nowrap' }}>{cv.title}</p>
           <motion.a href={`tel:${cv.contact.phone}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.phone}</motion.a>
           <motion.a href={`mailto:${cv.contact.email}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.email}</motion.a>
-          <motion.a href="/amy-peet-cv.pdf" download style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
+          <motion.a href="/amy-peet-cv.pdf" download target="_blank" rel="noopener noreferrer" style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
         </motion.div>
         <motion.p style={{ fontSize: m ? 12 : 13, lineHeight: 1.7, color: '#0a0a0a', marginTop: m ? 48 : 80 }} {...fade(0.1)}>© {new Date().getFullYear()} Amy Peet</motion.p>
       </div>
