@@ -10,6 +10,7 @@ function PasswordGate({ onUnlock }) {
   const submit = e => {
     e.preventDefault()
     if (value === 'hello') {
+      window.scrollTo(0, 0)
       onUnlock()
     } else {
       setShake(true)
