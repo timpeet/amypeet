@@ -26,11 +26,12 @@ function PasswordGate({ onUnlock }) {
         backdropFilter: 'blur(48px)',
         WebkitBackdropFilter: 'blur(48px)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: '0 24px',
       }}
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }}
     >
-      <form onSubmit={submit} style={{ width: 'auto' }}>
+      <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, width: '100%', maxWidth: 600 }}>
         <motion.input
           autoFocus
           type="password"
@@ -43,16 +44,37 @@ function PasswordGate({ onUnlock }) {
             background: 'transparent',
             border: 'none',
             outline: 'none',
-            fontSize: 'clamp(42px, 6.75vw, 69px)',
+            fontSize: 'clamp(32px, 6.75vw, 69px)',
             fontWeight: 800,
             letterSpacing: '-0.03em',
             lineHeight: 1.15,
             color: '#ffffff',
             width: '100%',
+            textAlign: 'center',
             caretColor: '#ffffff',
             fontFamily: 'inherit',
           }}
         />
+        <motion.button
+          type="submit"
+          whileHover={{ opacity: 0.5 }}
+          transition={{ duration: 0.2 }}
+          style={{
+            background: 'transparent',
+            border: '1px solid rgba(255,255,255,0.4)',
+            borderRadius: 100,
+            padding: '12px 40px',
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: '#ffffff',
+            cursor: 'none',
+            fontFamily: 'inherit',
+          }}
+        >
+          Login
+        </motion.button>
       </form>
     </motion.div>
   )
@@ -355,7 +377,7 @@ export default function App() {
       <AnimatePresence>
         {!unlocked && <PasswordGate onUnlock={() => setUnlocked(true)} />}
       </AnimatePresence>
-      <Cursor />
+      {!m && <Cursor />}
       <main>
         <Header m={m} />
         <Gallery m={m} />
