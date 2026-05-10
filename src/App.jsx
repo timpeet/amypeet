@@ -153,7 +153,7 @@ function Header({ m }) {
           <p style={{ ...line, whiteSpace: m ? 'normal' : 'nowrap' }}>{cv.title}</p>
           <motion.a href={`tel:${cv.contact.phone}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.phone}</motion.a>
           <motion.a href={`mailto:${cv.contact.email}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.email}</motion.a>
-          <motion.a href="/amy-peet-cv.pdf" download style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
+          <motion.a href={`${base}amy-peet-cv.pdf`} download style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
         </motion.div>
       </div>
     </header>
@@ -161,17 +161,19 @@ function Header({ m }) {
 }
 
 /* ── Gallery ── */
+const base = import.meta.env.BASE_URL
+
 const images = [
-  { src: '/gallery/BarberOsgerby_Alphabet_01.jpg', caption: 'Barber Osgerby - Alphabet Exhibition, Milan Triennale, 2026' },
-  { src: '/gallery/SAVOIA5.jpg', caption: '' },
-  { src: '/gallery/P7483_302.jpg', caption: '' },
-  { src: '/gallery/P7483_511.jpg', caption: '' },
-  { src: '/gallery/A31_FW20_OpticWhite01B-1.jpg', caption: '' },
-  { src: '/gallery/Screenshot 2026-05-10 at 09.35.28.png', caption: 'Andrew Gallimore by Rankin, 2015, published by Rankin Photography Ltd' },
-  { src: '/gallery/Caroline Saulnier by Rankin 2012, published by Rankin Photography Ltd.png' },
-  { src: '/gallery/More by Rankin, A retrospective 2013, Published by teNeues .png' },
-  { src: '/gallery/F*ck Y*u Rankin, 2014, Published by Rankin Publishing Ltd.png' },
-  { src: '/gallery/New Fashion Photography, 2013, Published by Prestel.jpg' },
+  { src: `${base}gallery/BarberOsgerby_Alphabet_01.jpg`, caption: 'Barber Osgerby - Alphabet Exhibition, Milan Triennale, 2026' },
+  { src: `${base}gallery/SAVOIA5.jpg`, caption: '' },
+  { src: `${base}gallery/P7483_302.jpg`, caption: '' },
+  { src: `${base}gallery/P7483_511.jpg`, caption: '' },
+  { src: `${base}gallery/A31_FW20_OpticWhite01B-1.jpg`, caption: '' },
+  { src: `${base}gallery/Screenshot 2026-05-10 at 09.35.28.png`, caption: 'Andrew Gallimore by Rankin, 2015, published by Rankin Photography Ltd' },
+  { src: `${base}gallery/Caroline Saulnier by Rankin 2012, published by Rankin Photography Ltd.png` },
+  { src: `${base}gallery/More by Rankin, A retrospective 2013, Published by teNeues .png` },
+  { src: `${base}gallery/F*ck Y*u Rankin, 2014, Published by Rankin Publishing Ltd.png` },
+  { src: `${base}gallery/New Fashion Photography, 2013, Published by Prestel.jpg` },
 ]
 
 const caption = ({ src, caption }) => caption ?? src.split('/').pop().replace(/\.[^.]+$/, '')
@@ -337,7 +339,7 @@ function Footer({ m }) {
           <p style={{ ...line, whiteSpace: m ? 'normal' : 'nowrap' }}>{cv.title}</p>
           <motion.a href={`tel:${cv.contact.phone}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.phone}</motion.a>
           <motion.a href={`mailto:${cv.contact.email}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.email}</motion.a>
-          <motion.a href="/amy-peet-cv.pdf" download style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
+          <motion.a href={`${base}amy-peet-cv.pdf`} download style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
         </motion.div>
         <motion.p style={{ fontSize: m ? 12 : 13, lineHeight: 1.7, color: '#0a0a0a', marginTop: m ? 48 : 80 }} {...fade(0.1)}>© {new Date().getFullYear()} Amy Peet</motion.p>
       </div>
