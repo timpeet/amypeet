@@ -119,7 +119,7 @@ function Cursor() {
   }, [])
 
   const size = mode === 'link' ? 120 : 75
-  const arrow = mode === 'gallery-left' ? '←' : mode === 'gallery-right' ? '→' : ''
+  const arrow = mode === 'gallery-left' ? '←' : mode === 'gallery-right' ? '→' : mode === 'default' ? '↓' : ''
 
   return (
     <motion.div
@@ -136,7 +136,7 @@ function Cursor() {
     >
       <motion.span
         style={{ fontSize: 22, fontWeight: 500, color: '#000000', lineHeight: 1, userSelect: 'none', pointerEvents: 'none' }}
-        animate={{ opacity: mode.startsWith('gallery') ? 1 : 0, scale: mode.startsWith('gallery') ? 1 : 0.5 }}
+        animate={{ opacity: mode === 'default' || mode.startsWith('gallery') ? 1 : 0, scale: mode === 'default' || mode.startsWith('gallery') ? 1 : 0.5 }}
         transition={{ duration: 0.15 }}
       >
         {arrow}
@@ -153,19 +153,23 @@ const fade = (delay = 0) => ({
 })
 
 /* ── Header ── */
-function Header({ m }) {
-  const wrap = { padding: m ? '56px 0 64px' : '108px 0 180px' }
+function Header({ m, headerRef, textWhite }) {
+  const wrap = {
+    padding: m ? '56px 0 64px' : '108px 0 180px',
+    position: 'fixed', top: 0, left: 0, right: 0, zIndex: 0,
+  }
   const W = { maxWidth: 1200, margin: '0 auto', padding: m ? '0 20px' : '0 80px' }
+  const col = textWhite ? '#ffffff' : '#0a0a0a'
   const line = {
     display: 'block',
     fontSize: m ? 'clamp(21px, 7vw, 31px)' : 'clamp(42px, 6vw, 60px)',
-    fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.15, color: '#0a0a0a',
-    margin: 0,
+    fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.15, color: col,
+    margin: 0, transition: 'color 0.4s ease',
   }
   const link = { ...line }
 
   return (
-    <header style={wrap}>
+    <header ref={headerRef} style={wrap}>
       <div style={W}>
         <motion.div
           initial={{ opacity: 0, filter: 'blur(32px)' }}
@@ -395,7 +399,7 @@ function Footer({ m }) {
   }
   const link = { ...line }
 
-  const W = { maxWidth: 1200, margin: '0 auto', padding: m ? '0 20px' : '0 80px' }
+  const W = { maxWidth: 1200, margin: '0 auto', padding: m ? '0 20px' : '0 80px', width: '100%' }
 
   return (
     <footer style={{
@@ -423,6 +427,24 @@ function Footer({ m }) {
 export default function App() {
   const m = useIsMobile()
   const [unlocked, setUnlocked] = useState(false)
+  const headerRef = useRef(null)
+  const [headerH, setHeaderH] = useState(0)
+  const [textWhite, setTextWhite] = useState(false)
+
+  useEffect(() => {
+    const measure = () => { if (headerRef.current) setHeaderH(headerRef.current.offsetHeight) }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [m])
+
+  useEffect(() => {
+    if (!headerH) return
+    const update = () => setTextWhite(window.scrollY >= headerH)
+    window.addEventListener('scroll', update, { passive: true })
+    update()
+    return () => window.removeEventListener('scroll', update)
+  }, [headerH])
 
   return (
     <>
@@ -431,8 +453,8 @@ export default function App() {
       </AnimatePresence>
       {!m && <Cursor />}
       {!m && <CircleReveal />}
-      <main>
-        <Header m={m} />
+      <main style={{ position: 'relative', zIndex: 1, background: '#f7f7f5', paddingTop: headerH }}>
+        <Header m={m} headerRef={headerRef} textWhite={textWhite} />
         <Gallery m={m} />
         <Profile m={m} />
         <Experience m={m} />
