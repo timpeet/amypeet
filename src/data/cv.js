@@ -71,7 +71,7 @@ export const cv = {
     },
     {
       category: 'Archive & Digital Asset Management',
-      description: 'Designing and implementing robust information architectures from the ground up. Specialized in the preservation and categorization of multi-format collections (digital, film, and physical), ensuring long-term legacy protection and immediate global accessibility through optimized metadata and DAM systems.',
+      description: 'Designing and implementing robust information architectures from the ground up. Specialised in the preservation and categorisation of multi-format collections (digital, film, and physical), ensuring long-term legacy protection and immediate global accessibility through optimised metadata and DAM systems.',
     },
     {
       category: 'Marketing & PR',
@@ -79,7 +79,7 @@ export const cv = {
     },
     {
       category: 'Information Architecture',
-      description: 'Expert in designing and maintaining scalable digital frameworks, including Metadata Strategy, Digital Asset Management (DAM), and File Structure Design. Experienced in CMS Management, ensuring that complex data remains organized, searchable, and optimized for both internal studio workflows and public-facing platforms.',
+      description: 'Expert in designing and maintaining scalable digital frameworks, including Metadata Strategy, Digital Asset Management (DAM), and File Structure Design. Experienced in CMS Management, ensuring that complex data remains organised, searchable, and optimised for both internal studio workflows and public-facing platforms.',
     },
     {
       category: 'Content & Editorial',
