@@ -46,7 +46,7 @@ function PasswordGate({ onUnlock }) {
             border: 'none',
             outline: 'none',
             fontSize: 'clamp(32px, 6.75vw, 69px)',
-            fontWeight: 800,
+            fontWeight: 500,
             letterSpacing: '-0.03em',
             lineHeight: 1.15,
             color: '#ffffff',
@@ -135,7 +135,7 @@ function Cursor() {
       transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
     >
       <motion.span
-        style={{ fontSize: 22, fontWeight: 800, color: '#000000', lineHeight: 1, userSelect: 'none', pointerEvents: 'none' }}
+        style={{ fontSize: 22, fontWeight: 500, color: '#000000', lineHeight: 1, userSelect: 'none', pointerEvents: 'none' }}
         animate={{ opacity: mode.startsWith('gallery') ? 1 : 0, scale: mode.startsWith('gallery') ? 1 : 0.5 }}
         transition={{ duration: 0.15 }}
       >
@@ -159,7 +159,7 @@ function Header({ m }) {
   const line = {
     display: 'block',
     fontSize: m ? 'clamp(21px, 7vw, 31px)' : 'clamp(42px, 6.75vw, 69px)',
-    fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.15, color: '#0a0a0a',
+    fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.15, color: '#0a0a0a',
     margin: 0,
   }
   const link = { ...line }
@@ -251,7 +251,7 @@ function SectionHeading({ children, m, delay = 0 }) {
     <motion.h2
       style={{
         fontSize: m ? 'clamp(24px, 7vw, 32px)' : 'clamp(42px, 6vw, 60px)',
-        fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1,
+        fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.1,
         color: '#0a0a0a', marginBottom: m ? 24 : 42,
       }}
       {...fade(delay)}
@@ -286,9 +286,9 @@ function Experience({ m }) {
         {cv.experience.map((job, i) => (
           <motion.div key={job.company} style={{ marginBottom: m ? 36 : 60 }} {...fade(i * 0.06)}>
             {job.url ? (
-              <motion.a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: m ? 'clamp(18px, 5vw, 24px)' : 'clamp(30px, 4.2vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 4, color: '#0a0a0a' }} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{job.company}</motion.a>
+              <motion.a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: m ? 'clamp(18px, 5vw, 24px)' : 'clamp(30px, 4.2vw, 42px)', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: 4, color: '#0a0a0a' }} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{job.company}</motion.a>
             ) : (
-              <h3 style={{ fontSize: m ? 'clamp(18px, 5vw, 24px)' : 'clamp(30px, 4.2vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 4, color: '#0a0a0a' }}>{job.company}</h3>
+              <h3 style={{ fontSize: m ? 'clamp(18px, 5vw, 24px)' : 'clamp(30px, 4.2vw, 42px)', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: 4, color: '#0a0a0a' }}>{job.company}</h3>
             )}
             <p style={{ fontSize: m ? 17 : 21, fontWeight: 700, marginBottom: m ? 12 : 21, color: '#0a0a0a' }}>{job.role} | {job.period}</p>
             <ul style={{ listStyle: 'none', display: m ? 'flex' : 'grid', gridTemplateColumns: '1fr 1fr', flexDirection: 'column', gap: m ? 8 : 15 }}>
@@ -335,7 +335,7 @@ function Education({ m }) {
         <SectionHeading m={m}>Education</SectionHeading>
         {cv.education.map((e, i) => (
           <motion.div key={e.degree} style={{ marginBottom: m ? 20 : 30 }} {...fade(i * 0.06)}>
-            <p style={{ fontSize: m ? 'clamp(16px, 4vw, 20px)' : 'clamp(24px, 3vw, 30px)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 2, color: '#0a0a0a' }}>{e.degree}</p>
+            <p style={{ fontSize: m ? 'clamp(16px, 4vw, 20px)' : 'clamp(24px, 3vw, 30px)', fontWeight: 500, letterSpacing: '-0.02em', marginBottom: 2, color: '#0a0a0a' }}>{e.degree}</p>
             <p style={{ fontSize: m ? 14 : 18, color: '#3a3a3a' }}>{e.institution} — {e.grade}</p>
           </motion.div>
         ))}
@@ -390,7 +390,7 @@ function Footer({ m }) {
   const line = {
     display: 'block',
     fontSize: m ? 'clamp(21px, 7vw, 31px)' : 'clamp(42px, 6.75vw, 69px)',
-    fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.15, color: '#0a0a0a',
+    fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.15, color: '#0a0a0a',
     margin: 0,
   }
   const link = { ...line }
