@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
 import { cv } from './data/cv'
 
@@ -268,7 +268,7 @@ function Profile({ m }) {
     <section style={{ padding: m ? '0 0 56px' : '0 0 108px' }}>
       <div style={W}>
         <SectionHeading m={m}>Personal profile</SectionHeading>
-        <motion.p style={{ fontSize: m ? 15 : 20, lineHeight: 1.7, color: '#0a0a0a' }} {...fade(0.05)}>
+        <motion.p style={{ fontSize: m ? 15 : 18, lineHeight: 1.7, color: '#0a0a0a' }} {...fade(0.05)}>
           {cv.profile}
         </motion.p>
       </div>
@@ -293,7 +293,7 @@ function Experience({ m }) {
             <p style={{ fontSize: m ? 13 : 21, fontWeight: 700, marginBottom: m ? 12 : 21, color: '#0a0a0a' }}>{job.role} | {job.period}</p>
             <ul style={{ listStyle: 'none', display: m ? 'flex' : 'grid', gridTemplateColumns: '1fr 1fr', flexDirection: 'column', gap: m ? 8 : 15 }}>
               {job.bullets.map(b => (
-                <li key={b.label} style={{ fontSize: m ? 14 : 20, lineHeight: 1.6, color: '#0a0a0a' }}>
+                <li key={b.label} style={{ fontSize: m ? 14 : 18, lineHeight: 1.6, color: '#0a0a0a' }}>
                   <strong style={{ fontWeight: 700 }}>{b.label}:</strong>{' '}{b.text}
                 </li>
               ))}
@@ -316,7 +316,7 @@ function Skills({ m }) {
           {cv.skills.map((g, i) => (
             <motion.div key={g.category} style={{ marginBottom: m ? 28 : 0 }} {...fade(i * 0.06)}>
               <p style={{ fontSize: m ? 13 : 20, fontWeight: 700, marginBottom: m ? 6 : 10, color: '#0a0a0a' }}>{g.category}</p>
-              <p style={{ fontSize: m ? 14 : 20, lineHeight: 1.7, color: '#0a0a0a' }}>{g.description}</p>
+              <p style={{ fontSize: m ? 14 : 18, lineHeight: 1.7, color: '#0a0a0a' }}>{g.description}</p>
             </motion.div>
           ))}
         </div>
@@ -335,7 +335,7 @@ function Education({ m }) {
         {cv.education.map((e, i) => (
           <motion.div key={e.degree} style={{ marginBottom: m ? 20 : 30 }} {...fade(i * 0.06)}>
             <p style={{ fontSize: m ? 'clamp(16px, 4vw, 20px)' : 'clamp(24px, 3vw, 30px)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 2, color: '#0a0a0a' }}>{e.degree}</p>
-            <p style={{ fontSize: m ? 13 : 20, color: '#0a0a0a' }}>{e.institution} — {e.grade}</p>
+            <p style={{ fontSize: m ? 13 : 18, color: '#0a0a0a' }}>{e.institution} — {e.grade}</p>
           </motion.div>
         ))}
       </div>
@@ -343,9 +343,49 @@ function Education({ m }) {
   )
 }
 
+/* ── Circle Reveal ── */
+function CircleReveal() {
+  const size = useMotionValue(0)
+  const springSize = useSpring(size, { stiffness: 280, damping: 35, mass: 0.5 })
+  const dim = useTransform(springSize, v => `${v}vw`)
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY
+    const update = () => {
+      const scrolled = window.scrollY
+      const isScrollingUp = scrolled < lastScrollY
+      lastScrollY = scrolled
+      if (isScrollingUp) {
+        size.set(0)
+      } else {
+        const total = document.body.scrollHeight - window.innerHeight
+        const p = Math.max(0, Math.min(1, (scrolled / total - 0.78) / 0.22))
+        size.set(p * 320)
+      }
+    }
+    window.addEventListener('scroll', update, { passive: true })
+    update()
+    return () => window.removeEventListener('scroll', update)
+  }, [])
+
+  return (
+    <motion.div style={{
+      position: 'fixed', bottom: 0, left: '50%',
+      translateX: '-50%', translateY: '50%',
+      width: dim, height: dim,
+      borderRadius: '50%',
+      background: '#ffffff',
+      mixBlendMode: 'difference',
+      pointerEvents: 'none',
+      zIndex: 9998,
+      filter: 'blur(36px)',
+      willChange: 'width, height',
+    }} />
+  )
+}
+
 /* ── Footer ── */
 function Footer({ m }) {
-  const W = { maxWidth: 1200, margin: '0 auto', padding: m ? '0 20px' : '0 80px' }
   const line = {
     display: 'block',
     fontSize: m ? 'clamp(21px, 7vw, 31px)' : 'clamp(42px, 6.75vw, 69px)',
@@ -354,17 +394,25 @@ function Footer({ m }) {
   }
   const link = { ...line }
 
+  const W = { maxWidth: 1200, margin: '0 auto', padding: m ? '0 20px' : '0 80px' }
+
   return (
-    <footer style={{ padding: m ? '60px 0 56px' : '120px 0 108px' }}>
+    <footer style={{
+      minHeight: '100vh', background: '#ffffff',
+      display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+      padding: m ? '56px 0 48px' : '108px 0 80px',
+    }}>
       <div style={W}>
         <motion.div {...fade()}>
           <p style={line}>{cv.name}</p>
           <p style={{ ...line, whiteSpace: m ? 'normal' : 'nowrap' }}>{cv.title}</p>
-          <motion.a href={`tel:${cv.contact.phone}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.phone}</motion.a>
-          <motion.a href={`mailto:${cv.contact.email}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.email}</motion.a>
-          <motion.a href="/amy-peet-cv.pdf" download target="_blank" rel="noopener noreferrer" style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
+          <motion.a href={`tel:${cv.contact.phone}`} style={link} whileHover={{ textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.phone}</motion.a>
+          <motion.a href={`mailto:${cv.contact.email}`} style={link} whileHover={{ textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.email}</motion.a>
+          <motion.a href="/amy-peet-cv.pdf" download target="_blank" rel="noopener noreferrer" style={link} whileHover={{ textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
         </motion.div>
-        <motion.p style={{ fontSize: m ? 12 : 13, lineHeight: 1.7, color: '#0a0a0a', marginTop: m ? 48 : 80 }} {...fade(0.1)}>© {new Date().getFullYear()} Amy Peet</motion.p>
+      </div>
+      <div style={W}>
+        <motion.p style={{ fontSize: m ? 12 : 13, color: '#0a0a0a', opacity: 0.4 }} {...fade(0.1)}>© {new Date().getFullYear()} Amy Peet</motion.p>
       </div>
     </footer>
   )
@@ -381,6 +429,7 @@ export default function App() {
         {!unlocked && <PasswordGate onUnlock={() => setUnlocked(true)} />}
       </AnimatePresence>
       {!m && <Cursor />}
+      {!m && <CircleReveal />}
       <main>
         <Header m={m} />
         <Gallery m={m} />
