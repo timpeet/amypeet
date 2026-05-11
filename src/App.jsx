@@ -265,7 +265,7 @@ function SectionHeading({ children, m, delay = 0 }) {
 function Profile({ m }) {
   const W = { maxWidth: 1200, margin: '0 auto', padding: m ? '0 20px' : '0 80px' }
   return (
-    <section style={{ padding: m ? '0 0 56px' : '0 0 108px' }}>
+    <section style={{ padding: m ? '0 0 112px' : '0 0 216px' }}>
       <div style={W}>
         <SectionHeading m={m}>Personal profile</SectionHeading>
         <motion.p style={{ fontSize: m ? 15 : 18, lineHeight: 1.7, color: '#0a0a0a' }} {...fade(0.05)}>
@@ -280,7 +280,7 @@ function Profile({ m }) {
 function Experience({ m }) {
   const W = { maxWidth: 1200, margin: '0 auto', padding: m ? '0 20px' : '0 80px' }
   return (
-    <section style={{ padding: m ? '0 0 56px' : '0 0 108px' }}>
+    <section style={{ padding: m ? '0 0 112px' : '0 0 216px' }}>
       <div style={W}>
         <SectionHeading m={m}>Professional experience</SectionHeading>
         {cv.experience.map((job, i) => (
@@ -293,8 +293,9 @@ function Experience({ m }) {
             <p style={{ fontSize: m ? 13 : 21, fontWeight: 700, marginBottom: m ? 12 : 21, color: '#0a0a0a' }}>{job.role} | {job.period}</p>
             <ul style={{ listStyle: 'none', display: m ? 'flex' : 'grid', gridTemplateColumns: '1fr 1fr', flexDirection: 'column', gap: m ? 8 : 15 }}>
               {job.bullets.map(b => (
-                <li key={b.label} style={{ fontSize: m ? 14 : 18, lineHeight: 1.6, color: '#0a0a0a' }}>
-                  <strong style={{ fontWeight: 700 }}>{b.label}:</strong>{' '}{b.text}
+                <li key={b.label} style={{ color: '#0a0a0a' }}>
+                  <p style={{ fontSize: m ? 13 : 20, fontWeight: 700, marginBottom: m ? 4 : 6 }}>{b.label}</p>
+                  <p style={{ fontSize: m ? 14 : 18, lineHeight: 1.6 }}>{b.text}</p>
                 </li>
               ))}
             </ul>
@@ -309,7 +310,7 @@ function Experience({ m }) {
 function Skills({ m }) {
   const W = { maxWidth: 1200, margin: '0 auto', padding: m ? '0 20px' : '0 80px' }
   return (
-    <section style={{ padding: m ? '0 0 56px' : '0 0 108px' }}>
+    <section style={{ padding: m ? '0 0 112px' : '0 0 216px' }}>
       <div style={W}>
         <SectionHeading m={m}>Skills &amp; expertise</SectionHeading>
         <div style={{ display: m ? 'flex' : 'grid', gridTemplateColumns: '1fr 1fr', flexDirection: 'column', gap: m ? 0 : 40 }}>
@@ -329,7 +330,7 @@ function Skills({ m }) {
 function Education({ m }) {
   const W = { maxWidth: 1200, margin: '0 auto', padding: m ? '0 20px' : '0 80px' }
   return (
-    <section style={{ padding: m ? '0 0 56px' : '0 0 108px' }}>
+    <section style={{ padding: m ? '0 0 112px' : '0 0 216px' }}>
       <div style={W}>
         <SectionHeading m={m}>Education</SectionHeading>
         {cv.education.map((e, i) => (
