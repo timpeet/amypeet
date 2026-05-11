@@ -291,7 +291,7 @@ function Experience({ m }) {
               <h3 style={{ fontSize: m ? 'clamp(18px, 5vw, 24px)' : 'clamp(30px, 4.2vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 4, color: '#0a0a0a' }}>{job.company}</h3>
             )}
             <p style={{ fontSize: m ? 13 : 21, fontWeight: 700, marginBottom: m ? 12 : 21, color: '#0a0a0a' }}>{job.role} | {job.period}</p>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: m ? 8 : 15 }}>
+            <ul style={{ listStyle: 'none', display: m ? 'flex' : 'grid', gridTemplateColumns: '1fr 1fr', flexDirection: 'column', gap: m ? 8 : 15 }}>
               {job.bullets.map(b => (
                 <li key={b.label} style={{ fontSize: m ? 14 : 20, lineHeight: 1.6, color: '#0a0a0a' }}>
                   <strong style={{ fontWeight: 700 }}>{b.label}:</strong>{' '}{b.text}
@@ -312,12 +312,14 @@ function Skills({ m }) {
     <section style={{ padding: m ? '0 0 56px' : '0 0 108px' }}>
       <div style={W}>
         <SectionHeading m={m}>Skills &amp; expertise</SectionHeading>
-        {cv.skills.map((g, i) => (
-          <motion.div key={g.category} style={{ marginBottom: m ? 28 : 40 }} {...fade(i * 0.06)}>
-            <p style={{ fontSize: m ? 13 : 20, fontWeight: 700, marginBottom: m ? 6 : 10, color: '#0a0a0a' }}>{g.category}</p>
-            <p style={{ fontSize: m ? 14 : 20, lineHeight: 1.7, color: '#0a0a0a' }}>{g.description}</p>
-          </motion.div>
-        ))}
+        <div style={{ display: m ? 'flex' : 'grid', gridTemplateColumns: '1fr 1fr', flexDirection: 'column', gap: m ? 0 : 40 }}>
+          {cv.skills.map((g, i) => (
+            <motion.div key={g.category} style={{ marginBottom: m ? 28 : 0 }} {...fade(i * 0.06)}>
+              <p style={{ fontSize: m ? 13 : 20, fontWeight: 700, marginBottom: m ? 6 : 10, color: '#0a0a0a' }}>{g.category}</p>
+              <p style={{ fontSize: m ? 14 : 20, lineHeight: 1.7, color: '#0a0a0a' }}>{g.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )
