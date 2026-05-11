@@ -145,6 +145,44 @@ function Cursor() {
   )
 }
 
+/* ── Glass Link ── */
+function GlassLink({ href, style, children, download, target, rel, white }) {
+  const [hovered, setHovered] = useState(false)
+  const hoverColor = white ? '#ffffff' : '#007AFF'
+  const pillBg = white ? 'rgba(255,255,255,0.12)' : 'rgba(0,122,255,0.08)'
+  const pillBorder = white ? 'rgba(255,255,255,0.3)' : 'rgba(0,122,255,0.22)'
+  return (
+    <a
+      href={href} download={download} target={target} rel={rel}
+      style={{ ...style, color: hovered ? hoverColor : style.color, transition: 'color 0.25s', textDecoration: 'none' }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <span style={{ position: 'relative', display: 'inline-block' }}>
+        <AnimatePresence>
+          {hovered && (
+            <motion.span
+              style={{
+                position: 'absolute', inset: '-10px -18px',
+                borderRadius: '100px',
+                background: pillBg,
+                border: `1px solid ${pillBorder}`,
+                backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
+                zIndex: 0, pointerEvents: 'none', display: 'block',
+              }}
+              initial={{ scaleX: 0.4, scaleY: 0.2, opacity: 0 }}
+              animate={{ scaleX: 1, scaleY: 1, opacity: 1 }}
+              exit={{ scaleX: 0.4, scaleY: 0.2, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 38 }}
+            />
+          )}
+        </AnimatePresence>
+        <span style={{ position: 'relative', zIndex: 1 }}>{children}</span>
+      </span>
+    </a>
+  )
+}
+
 const fade = (delay = 0) => ({
   initial: { opacity: 0, filter: 'blur(32px)' },
   whileInView: { opacity: 1, filter: 'blur(0px)' },
@@ -178,9 +216,9 @@ function Header({ m, headerRef, textWhite }) {
         >
           <p style={line}>{cv.name}</p>
           <p style={{ ...line, whiteSpace: m ? 'normal' : 'nowrap' }}>{cv.title}</p>
-          <motion.a href={`tel:${cv.contact.phone}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.phone}</motion.a>
-          <motion.a href={`mailto:${cv.contact.email}`} style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.email}</motion.a>
-          <motion.a href="/amy-peet-cv.pdf" download target="_blank" rel="noopener noreferrer" style={link} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
+          <GlassLink href={`tel:${cv.contact.phone}`} style={link} white={textWhite}>{cv.contact.phone}</GlassLink>
+          <GlassLink href={`mailto:${cv.contact.email}`} style={link} white={textWhite}>{cv.contact.email}</GlassLink>
+          <GlassLink href="/amy-peet-cv.pdf" download target="_blank" rel="noopener noreferrer" style={link} white={textWhite}>Download resume</GlassLink>
         </motion.div>
       </div>
     </header>
@@ -290,7 +328,7 @@ function Experience({ m }) {
         {cv.experience.map((job, i) => (
           <motion.div key={job.company} style={{ marginBottom: m ? 36 : 60 }} {...fade(i * 0.06)}>
             {job.url ? (
-              <motion.a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: m ? 'clamp(18px, 5vw, 24px)' : 'clamp(30px, 4.2vw, 42px)', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: 4, color: '#0a0a0a' }} whileHover={{ opacity: 0.4, textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{job.company}</motion.a>
+              <GlassLink href={job.url} target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: m ? 'clamp(18px, 5vw, 24px)' : 'clamp(30px, 4.2vw, 42px)', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: 4, color: '#0a0a0a' }}>{job.company}</GlassLink>
             ) : (
               <h3 style={{ fontSize: m ? 'clamp(18px, 5vw, 24px)' : 'clamp(30px, 4.2vw, 42px)', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: 4, color: '#0a0a0a' }}>{job.company}</h3>
             )}
@@ -411,9 +449,9 @@ function Footer({ m }) {
         <motion.div {...fade()}>
           <p style={line}>{cv.name}</p>
           <p style={{ ...line, whiteSpace: m ? 'normal' : 'nowrap' }}>{cv.title}</p>
-          <motion.a href={`tel:${cv.contact.phone}`} style={link} whileHover={{ textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.phone}</motion.a>
-          <motion.a href={`mailto:${cv.contact.email}`} style={link} whileHover={{ textDecoration: 'underline' }} transition={{ duration: 0.2 }}>{cv.contact.email}</motion.a>
-          <motion.a href="/amy-peet-cv.pdf" download target="_blank" rel="noopener noreferrer" style={link} whileHover={{ textDecoration: 'underline' }} transition={{ duration: 0.2 }}>Download resume</motion.a>
+          <GlassLink href={`tel:${cv.contact.phone}`} style={link}>{cv.contact.phone}</GlassLink>
+          <GlassLink href={`mailto:${cv.contact.email}`} style={link}>{cv.contact.email}</GlassLink>
+          <GlassLink href="/amy-peet-cv.pdf" download target="_blank" rel="noopener noreferrer" style={link}>Download resume</GlassLink>
         </motion.div>
       </div>
       <div style={W}>
