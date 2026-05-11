@@ -63,7 +63,7 @@ export const cv = {
     },
     {
       category: 'Project Management',
-      description: 'End-to-end delivery of complex, high-stakes creative projects—from international retrospectives to website redevelopments and book publishing. Adept at managing multi-faceted timelines, tracking production budgets, and coordinating diverse teams to meet immovable global launch dates.',
+      description: 'End-to-end delivery of complex, high-stakes creative projects from international retrospectives to website redevelopments and book publishing. Adept at managing multi-faceted timelines, tracking production budgets, and coordinating diverse teams to meet immovable global launch dates.',
     },
     {
       category: 'Curation',
