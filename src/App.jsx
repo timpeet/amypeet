@@ -254,6 +254,13 @@ function Gallery({ m }) {
   }
 
   const px = m ? 20 : 80
+  const [galleryLeft, setGalleryLeft] = useState(px)
+  useEffect(() => {
+    const calc = () => setGalleryLeft(window.innerWidth > 1200 ? Math.round((window.innerWidth - 1200) / 2) + px : px)
+    calc()
+    window.addEventListener('resize', calc)
+    return () => window.removeEventListener('resize', calc)
+  }, [px])
 
   return (
     <motion.div
@@ -269,7 +276,7 @@ function Gallery({ m }) {
           display: 'flex', gap: 12,
           overflowX: 'auto', overflowY: 'hidden',
           cursor: 'none',
-          paddingLeft: px, paddingRight: px,
+          paddingLeft: galleryLeft, paddingRight: px,
           scrollbarWidth: 'none', msOverflowStyle: 'none',
         }}
         onClick={onClick}
