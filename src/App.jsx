@@ -313,9 +313,9 @@ function Skills({ m }) {
       <div style={W}>
         <SectionHeading m={m}>Skills &amp; expertise</SectionHeading>
         {cv.skills.map((g, i) => (
-          <motion.div key={g.category} style={{ marginBottom: m ? 20 : 30 }} {...fade(i * 0.06)}>
-            <p style={{ fontSize: m ? 13 : 20, fontWeight: 700, marginBottom: 4, color: '#0a0a0a' }}>{g.category}</p>
-            <p style={{ fontSize: m ? 14 : 20, lineHeight: 1.6, color: '#0a0a0a' }}>{g.items.join(', ')}</p>
+          <motion.div key={g.category} style={{ marginBottom: m ? 28 : 40 }} {...fade(i * 0.06)}>
+            <p style={{ fontSize: m ? 13 : 20, fontWeight: 700, marginBottom: m ? 6 : 10, color: '#0a0a0a' }}>{g.category}</p>
+            <p style={{ fontSize: m ? 14 : 20, lineHeight: 1.7, color: '#0a0a0a' }}>{g.description}</p>
           </motion.div>
         ))}
       </div>

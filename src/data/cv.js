@@ -58,16 +58,36 @@ export const cv = {
   ],
   skills: [
     {
+      category: 'Content Design',
+      description: 'Applying a user-centric approach to digital landscapes by structuring complex information into accessible, intuitive layouts. Experienced in working alongside developers to design CMS structures and authoring copy that maintains brand narrative across high-traffic portfolio and editorial websites.',
+    },
+    {
+      category: 'Project Management',
+      description: 'End-to-end delivery of complex, high-stakes creative projects—from international retrospectives to website redevelopments and book publishing. Adept at managing multi-faceted timelines, tracking production budgets, and coordinating diverse teams to meet immovable global launch dates.',
+    },
+    {
+      category: 'Curation',
+      description: "Selecting and sequencing visual and physical assets to tell compelling stories. Expert in translating a founder's vision into tangible outputs, including keynote presentations, retrospective exhibitions, and published monographs, with a focus on archival integrity and aesthetic impact.",
+    },
+    {
+      category: 'Archive & Digital Asset Management',
+      description: 'Designing and implementing robust information architectures from the ground up. Specialized in the preservation and categorization of multi-format collections (digital, film, and physical), ensuring long-term legacy protection and immediate global accessibility through optimized metadata and DAM systems.',
+    },
+    {
+      category: 'Marketing & PR',
+      description: 'Protecting and promoting the public profile of world-class talent. Experienced in managing institutional communications, coordinating with international PR agencies, and overseeing the distribution of assets for global press coverage and social media strategy.',
+    },
+    {
       category: 'Information Architecture',
-      items: ['Metadata Strategy', 'Digital Asset Management', 'CMS Management', 'File Structure Design'],
+      description: 'Expert in designing and maintaining scalable digital frameworks, including Metadata Strategy, Digital Asset Management (DAM), and File Structure Design. Experienced in CMS Management, ensuring that complex data remains organized, searchable, and optimized for both internal studio workflows and public-facing platforms.',
     },
     {
       category: 'Content & Editorial',
-      items: ['Copywriting', 'Picture Research', 'Fact-checking', 'Proofreading', 'Curation'],
+      description: 'A meticulous approach to brand storytelling through Copywriting, Picture Research, and Curation. I provide end-to-end editorial support, including rigorous Fact-checking and Proofreading, to ensure all published material—from monographs to digital project launches—meets the highest standards of accuracy and aesthetic quality.',
     },
     {
       category: 'Studio Operations',
-      items: ['International Project Management', 'PR Coordination', 'Stakeholder Engagement', 'Exhibition Logistics'],
+      description: 'Specialist in high-level International Project Management and Stakeholder Engagement. I bridge the gap between creative vision and operational delivery by overseeing PR Coordination and Exhibition Logistics, managing complex budgets, and navigating the unique requirements of working with prolific talent.',
     },
   ],
   education: [
