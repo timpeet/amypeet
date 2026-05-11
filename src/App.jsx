@@ -158,7 +158,7 @@ function Header({ m }) {
   const W = { maxWidth: 1200, margin: '0 auto', padding: m ? '0 20px' : '0 80px' }
   const line = {
     display: 'block',
-    fontSize: m ? 'clamp(21px, 7vw, 31px)' : 'clamp(42px, 6.75vw, 69px)',
+    fontSize: m ? 'clamp(21px, 7vw, 31px)' : 'clamp(42px, 6vw, 60px)',
     fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.15, color: '#0a0a0a',
     margin: 0,
   }
@@ -389,7 +389,7 @@ function CircleReveal() {
 function Footer({ m }) {
   const line = {
     display: 'block',
-    fontSize: m ? 'clamp(21px, 7vw, 31px)' : 'clamp(42px, 6.75vw, 69px)',
+    fontSize: m ? 'clamp(21px, 7vw, 31px)' : 'clamp(42px, 6vw, 60px)',
     fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.15, color: '#0a0a0a',
     margin: 0,
   }
