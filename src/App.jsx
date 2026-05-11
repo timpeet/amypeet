@@ -344,7 +344,7 @@ function Experience({ m }) {
               {job.bullets.map(b => (
                 <li key={b.label} style={{ color: '#0a0a0a' }}>
                   <p style={{ fontSize: m ? 17 : 20, fontWeight: 700, marginBottom: m ? 4 : 6 }}>{b.label}</p>
-                  <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: '#555555' }}>{b.text}</p>
+                  <p style={{ fontSize: m ? 16 : 18, lineHeight: 1.6, color: '#555555' }}>{b.text}</p>
                 </li>
               ))}
             </ul>
@@ -366,7 +366,7 @@ function Skills({ m }) {
           {cv.skills.map((g, i) => (
             <motion.div key={g.category} style={{ marginBottom: m ? 28 : 0 }} {...fade(i * 0.06)}>
               <p style={{ fontSize: m ? 17 : 20, fontWeight: 700, marginBottom: m ? 6 : 10, color: '#0a0a0a' }}>{g.category}</p>
-              <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.7, color: '#555555' }}>{g.description}</p>
+              <p style={{ fontSize: m ? 16 : 18, lineHeight: 1.7, color: '#555555' }}>{g.description}</p>
             </motion.div>
           ))}
         </div>
@@ -385,7 +385,7 @@ function Education({ m }) {
         {cv.education.map((e, i) => (
           <motion.div key={e.degree} style={{ marginBottom: m ? 20 : 30 }} {...fade(i * 0.06)}>
             <p style={{ fontSize: m ? 'clamp(16px, 4vw, 20px)' : 'clamp(24px, 3vw, 30px)', fontWeight: 500, letterSpacing: '-0.02em', marginBottom: 2, color: '#0a0a0a' }}>{e.degree}</p>
-            <p style={{ fontSize: m ? 14 : 18, color: '#555555' }}>{e.institution} — {e.grade}</p>
+            <p style={{ fontSize: m ? 16 : 18, color: '#555555' }}>{e.institution} — {e.grade}</p>
           </motion.div>
         ))}
       </div>
