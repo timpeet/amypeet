@@ -399,7 +399,7 @@ function Footer({ m }) {
 
   return (
     <footer style={{
-      minHeight: '100vh', background: '#ffffff',
+      minHeight: '100vh', background: '#f7f7f5',
       display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
       padding: m ? '56px 0 48px' : '108px 0 80px',
     }}>
