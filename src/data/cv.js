@@ -83,7 +83,7 @@ export const cv = {
     },
     {
       category: 'Content & Editorial',
-      description: 'A meticulous approach to brand storytelling through Copywriting, Picture Research, and Curation. I provide end-to-end editorial support, including rigorous Fact-checking and Proofreading, to ensure all published material—from monographs to digital project launches—meets the highest standards of accuracy and aesthetic quality.',
+      description: 'A meticulous approach to brand storytelling through Copywriting, Picture Research, and Curation. I provide end-to-end editorial support, including rigorous Fact-checking and Proofreading, to ensure all published material from monographs to digital project launches meets the highest standards of accuracy and aesthetic quality.',
     },
     {
       category: 'Studio Operations',
