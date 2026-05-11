@@ -6,7 +6,7 @@ export const cv = {
     phone: '+44 7834 235 639',
     location: 'London, UK',
   },
-  profile: `I am a loyal, hardworking, and highly motivated individual who thrives on producing and delivering work of the highest standard. I have an extensive background in managing the creative legacies of world-renowned talent, combining technical expertise in Digital Asset Management (DAM) with the ability to coordinate complex international projects. A collaborative problem-solver with a proven track record in curating physical and digital collections from the ground up, I relish a challenge and have the ability to juggle a variety of tasks on a priority basis.`,
+  profile: `I am a loyal, hardworking, and highly motivated individual who thrives on producing and delivering work of the highest standard. I have an extensive background in managing the creative legacies of world-renowned talent, combining technical expertise in Digital Asset Management (DAM) with the ability to coordinate complex international projects. A collaborative problem-solver with a proven track record in curating physical and digital collections from the ground up, I relish a challenge and possess the agility to manage complex stakeholder relationships and diverse project deadlines to ensure all creative objectives are delivered with precision.`,
   experience: [
     {
       company: 'Barber Osgerby',
