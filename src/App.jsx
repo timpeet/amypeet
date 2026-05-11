@@ -237,7 +237,7 @@ function Gallery({ m }) {
             <div style={{ height: m ? '35vh' : '60vh', maxHeight: m ? 280 : 600 }}>
               <img src={img.src} alt="" style={{ height: '100%', width: 'auto', display: 'block', objectFit: 'cover', userSelect: 'none' }} draggable={false} />
             </div>
-            {caption(img) && <p style={{ fontSize: m ? 14 : 12, fontWeight: 400, color: '#0a0a0a', letterSpacing: '0.01em', lineHeight: 1.4, whiteSpace: 'nowrap' }}>{caption(img)}</p>}
+            {caption(img) && <p style={{ fontSize: m ? 13 : 12, fontWeight: 400, color: '#0a0a0a', letterSpacing: '0.01em', lineHeight: 1.4, whiteSpace: 'nowrap' }}>{caption(img)}</p>}
           </div>
         ))}
       </div>
@@ -268,7 +268,7 @@ function Profile({ m }) {
     <section style={{ padding: m ? '0 0 112px' : '0 0 216px' }}>
       <div style={W}>
         <SectionHeading m={m}>Personal profile</SectionHeading>
-        <motion.p style={{ fontSize: m ? 15 : 18, lineHeight: 1.7, color: '#0a0a0a' }} {...fade(0.05)}>
+        <motion.p style={{ fontSize: m ? 16 : 18, lineHeight: 1.7, color: '#3a3a3a' }} {...fade(0.05)}>
           {cv.profile}
         </motion.p>
       </div>
@@ -290,12 +290,12 @@ function Experience({ m }) {
             ) : (
               <h3 style={{ fontSize: m ? 'clamp(18px, 5vw, 24px)' : 'clamp(30px, 4.2vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 4, color: '#0a0a0a' }}>{job.company}</h3>
             )}
-            <p style={{ fontSize: m ? 13 : 21, fontWeight: 700, marginBottom: m ? 12 : 21, color: '#0a0a0a' }}>{job.role} | {job.period}</p>
+            <p style={{ fontSize: m ? 17 : 21, fontWeight: 700, marginBottom: m ? 12 : 21, color: '#0a0a0a' }}>{job.role} | {job.period}</p>
             <ul style={{ listStyle: 'none', display: m ? 'flex' : 'grid', gridTemplateColumns: '1fr 1fr', flexDirection: 'column', gap: m ? 8 : 15 }}>
               {job.bullets.map(b => (
                 <li key={b.label} style={{ color: '#0a0a0a' }}>
-                  <p style={{ fontSize: m ? 13 : 20, fontWeight: 700, marginBottom: m ? 4 : 6 }}>{b.label}</p>
-                  <p style={{ fontSize: m ? 14 : 18, lineHeight: 1.6 }}>{b.text}</p>
+                  <p style={{ fontSize: m ? 17 : 20, fontWeight: 700, marginBottom: m ? 4 : 6 }}>{b.label}</p>
+                  <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: '#3a3a3a' }}>{b.text}</p>
                 </li>
               ))}
             </ul>
@@ -316,8 +316,8 @@ function Skills({ m }) {
         <div style={{ display: m ? 'flex' : 'grid', gridTemplateColumns: '1fr 1fr', flexDirection: 'column', gap: m ? 0 : 40 }}>
           {cv.skills.map((g, i) => (
             <motion.div key={g.category} style={{ marginBottom: m ? 28 : 0 }} {...fade(i * 0.06)}>
-              <p style={{ fontSize: m ? 13 : 20, fontWeight: 700, marginBottom: m ? 6 : 10, color: '#0a0a0a' }}>{g.category}</p>
-              <p style={{ fontSize: m ? 14 : 18, lineHeight: 1.7, color: '#0a0a0a' }}>{g.description}</p>
+              <p style={{ fontSize: m ? 17 : 20, fontWeight: 700, marginBottom: m ? 6 : 10, color: '#0a0a0a' }}>{g.category}</p>
+              <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.7, color: '#3a3a3a' }}>{g.description}</p>
             </motion.div>
           ))}
         </div>
@@ -336,7 +336,7 @@ function Education({ m }) {
         {cv.education.map((e, i) => (
           <motion.div key={e.degree} style={{ marginBottom: m ? 20 : 30 }} {...fade(i * 0.06)}>
             <p style={{ fontSize: m ? 'clamp(16px, 4vw, 20px)' : 'clamp(24px, 3vw, 30px)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 2, color: '#0a0a0a' }}>{e.degree}</p>
-            <p style={{ fontSize: m ? 13 : 18, color: '#0a0a0a' }}>{e.institution} — {e.grade}</p>
+            <p style={{ fontSize: m ? 14 : 18, color: '#3a3a3a' }}>{e.institution} — {e.grade}</p>
           </motion.div>
         ))}
       </div>
