@@ -6,7 +6,7 @@ export const cv = {
     phone: '+44 7834 235 639',
     location: 'London, UK',
   },
-  profile: `I am a loyal, hardworking, and highly motivated individual who thrives on producing and delivering work of the highest standard. I have an extensive background in managing the creative legacies of world-renowned talent, combining technical expertise in Digital Asset Management (DAM) with the ability to coordinate complex international projects. A collaborative problem-solver with a proven track record in curating physical and digital collections from the ground up, I relish a challenge and possess the agility to manage complex stakeholder relationships and diverse project deadlines to ensure all creative objectives are delivered with precision.`,
+  profile: `I am a highly motivated and detail-oriented professional with extensive experience managing the creative legacies of internationally renowned talent. Combining expertise in Digital Asset Management (DAM) with a strong background in coordinating complex global projects, I excel at building and curating both physical and digital collections from the ground up. Known for a collaborative and solutions-focused approach, I thrive in fast-paced environments, confidently managing stakeholder relationships, competing priorities, and tight deadlines to deliver exceptional results with accuracy and professionalism.`,
   experience: [
     {
       company: 'Barber Osgerby',
@@ -14,11 +14,11 @@ export const cv = {
       role: 'Archivist & PR Coordinator',
       period: 'January 2017 – Present',
       bullets: [
-        { label: 'Founder Partnership', text: "Work alongside the founders daily to curate keynote presentations, manage the studio's public-facing narrative through tailored biographies, and field institutional communications." },
-        { label: 'Integrated Archive Management', text: 'Created the physical and digital archive from the ground up, logging thousands of items, and designed studio-wide file structures for high-level accessibility.' },
-        { label: 'Digital Infrastructure', text: 'Manage the lifecycle of all digital assets, including film, photography, and press coverage, and create master lists for projects.' },
-        { label: 'Exhibition Logistics', text: "Managed the retrospective 'Alphabet' for the Milan Triennale, overseeing the loan of nearly 300 items, on-site troubleshooting, and tracking all restoration and production costs." },
-        { label: 'Content Operations', text: 'Assisted with the development and design of the studio website, working with the developer on layouts, CMS setup, writing copy and editing images for international project launches.' },
+        { label: 'Founder Partnership', text: "Work alongside the founders daily to curate keynote presentations, manage the studio's public-facing narrative through tailored biographies and field institutional communications." },
+        { label: 'Integrated Archive Management', text: 'Created the physical and digital archive from the ground up, logging thousands of items and designed studio-wide file structures for high-level accessibility.' },
+        { label: 'Digital Infrastructure', text: 'Manage the lifecycle of all digital assets, including film, photography, press coverage and created master lists for projects.' },
+        { label: 'Exhibition Logistics', text: "Managed the current retrospective 'Alphabet' at the Triennale Milano, overseeing the loan of nearly 300 items, on-site troubleshooting, tracking all restoration and production costs." },
+        { label: 'Content Operations', text: 'Assisted with the development and design of the studio website, working with the developer on layouts, CMS setup, copywriting and editing images for international project launches.' },
         { label: 'Editorial & Publishing', text: 'Worked with the director to select projects and picture edit the catalogue, while coordinating end-to-end fact-checking and print proofing.' },
       ],
     },
@@ -59,35 +59,35 @@ export const cv = {
   skills: [
     {
       category: 'Content Design',
-      description: 'Applying a user-centric approach to digital landscapes by structuring complex information into accessible, intuitive layouts. Experienced in working alongside developers to design CMS structures and authoring copy that maintains brand narrative across high-traffic portfolio and editorial websites.',
+      description: 'Applying a user-centric approach to digital landscapes by structuring complex information into accessible, intuitive layouts. Experienced in working alongside developers to design CMS structures and authoring copy that maintains brand narrative across high-traffic portfolio websites.',
     },
     {
       category: 'Project Management',
-      description: 'End-to-end delivery of complex, high-stakes creative projects from international retrospectives to website redevelopments and book publishing. Adept at managing multi-faceted timelines, tracking production budgets, and coordinating diverse teams to meet immovable global launch dates.',
+      description: 'End-to-end delivery of complex, high-stakes creative projects from international retrospectives to digital transformations and book publishing. Adept at managing multi-faceted timelines, tracking production budgets, and coordinating diverse teams to meet immovable global launch dates.',
     },
     {
       category: 'Curation',
-      description: "Selecting and sequencing visual and physical assets to tell compelling stories. Expert in translating a founder's vision into tangible outputs, including keynote presentations, retrospective exhibitions, and published monographs, with a focus on archival integrity and aesthetic impact.",
+      description: "Selecting and sequencing visual and physical assets to tell compelling stories. Expert in translating a founder's vision into tangible outputs, including keynote presentations, retrospective exhibitions and published monographs, with a focus on archival integrity and aesthetic impact.",
     },
     {
       category: 'Archive & Digital Asset Management',
-      description: 'Designing and implementing robust information architectures from the ground up. Specialised in the preservation and categorisation of multi-format collections (digital, film, and physical), ensuring long-term legacy protection and immediate global accessibility through optimised metadata and DAM systems.',
+      description: 'Designing and implementing robust information architectures from the ground up. Specialising in the preservation and categorisation of multi-format collections, including digital, film, and physical assets. This work ensures long-term legacy protection and immediate global accessibility through optimised metadata and DAM systems.',
     },
     {
       category: 'Marketing & PR',
-      description: 'Protecting and promoting the public profile of world-class talent. Experienced in managing institutional communications, coordinating with international PR agencies, and overseeing the distribution of assets for global press coverage and social media strategy.',
+      description: 'Protecting and promoting the public profile of world-class talent. Experienced in managing institutional communications, coordinating with international PR agencies, overseeing the distribution of assets for global press coverage and social media strategy.',
     },
     {
       category: 'Information Architecture',
-      description: 'Expert in designing and maintaining scalable digital frameworks, including Metadata Strategy, Digital Asset Management (DAM), and File Structure Design. Experienced in CMS Management, ensuring that complex data remains organised, searchable, and optimised for both internal studio workflows and public-facing platforms.',
+      description: 'Expert in designing and maintaining scalable digital frameworks, including metadata strategy, Digital Asset Management (DAM), and file structure design. Experienced in CMS management, ensuring that complex data remains organised, searchable and optimised for both internal studio workflows and public-facing platforms.',
     },
     {
       category: 'Content & Editorial',
-      description: 'A meticulous approach to brand storytelling through Copywriting, Picture Research, and Curation. I provide end-to-end editorial support, including rigorous Fact-checking and Proofreading, to ensure all published material from monographs to digital project launches meets the highest standards of accuracy and aesthetic quality.',
+      description: 'A meticulous approach to brand storytelling through copywriting, picture research, and curation. I provide end-to-end editorial support, including rigorous fact-checking and proofreading, ensuring all published material from monographs to digital project launches meets the highest standards of accuracy and aesthetic quality.',
     },
     {
       category: 'Studio Operations',
-      description: 'Specialist in high-level International Project Management and Stakeholder Engagement. I bridge the gap between creative vision and operational delivery by overseeing PR Coordination and Exhibition Logistics, managing complex budgets, and navigating the unique requirements of working with prolific talent.',
+      description: 'Specialist in high-level international project management and stakeholder engagement. I bridge the gap between creative vision and operational delivery by overseeing PR coordination and exhibition logistics, managing complex budgets, and navigating the unique requirements of working with prolific talent.',
     },
   ],
   education: [

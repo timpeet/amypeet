@@ -118,7 +118,7 @@ function Cursor() {
     return () => window.removeEventListener('mousemove', onMove)
   }, [])
 
-  const size = mode === 'link' ? 120 : 75
+  const size = mode === 'link' ? 60 : 38
   const arrow = mode === 'gallery-left' ? '←' : mode === 'gallery-right' ? '→' : mode === 'default' ? '↓' : ''
 
   return (
@@ -226,20 +226,40 @@ function Header({ m, headerRef, textWhite }) {
 }
 
 /* ── Gallery ── */
+const triennale = 'Triennale Exhibition Images: © Matteo Pasin @ Triennale Milano — Managed nearly 300 assets and oversaw onsite installation, coordinating across key stakeholders; including designers, architects, the curator, and the Triennale team—to ensure seamless delivery and onsite problem-solving.'
+
 const images = [
-  { src: '/gallery/BarberOsgerby_Alphabet_01.jpg', caption: 'Barber Osgerby - Alphabet Exhibition, Milan Triennale, 2026' },
-  { src: '/gallery/SAVOIA5.jpg', caption: '' },
-  { src: '/gallery/P7483_302.jpg', caption: '' },
-  { src: '/gallery/P7483_511.jpg', caption: '' },
-  { src: '/gallery/A31_FW20_OpticWhite01B-1.jpg', caption: '' },
-  { src: '/gallery/Screenshot 2026-05-10 at 09.35.28.png', caption: 'Andrew Gallimore by Rankin, 2015, published by Rankin Photography Ltd' },
-  { src: '/gallery/Caroline Saulnier by Rankin 2012, published by Rankin Photography Ltd.png' },
-  { src: '/gallery/More by Rankin, A retrospective 2013, Published by teNeues .png' },
-  { src: '/gallery/F*ck Y*u Rankin, 2014, Published by Rankin Publishing Ltd.png' },
-  { src: '/gallery/New Fashion Photography, 2013, Published by Prestel.jpg' },
+  { src: '/gallery/BarberOsgerby_Alphabet_01.jpg', caption: triennale },
+  { src: '/gallery/Screenshot 2026-05-12 at 12.15.08.png', caption: triennale },
+  { src: '/gallery/Edward Barber & Jay Osgerby Portrait 2530_V01.jpg', caption: triennale },
+  { src: '/gallery/BarberOsgerbyStudio_Finals_6.jpg', caption: "Tip Ton Poster / Art Print: Image of Ed and Jay signing: © Tom Ziora for Vitra. Images of the poster: © Liz Seabrook for Vitra — Project managed the design and production of a limited-edition screen print and poster celebrating the 10th anniversary of Vitra's Tip Ton chair." },
+  { src: '/gallery/Screenshot 2026-05-10 at 09.35.28.png', caption: 'Andrew Gallimore Book: © Rankin — Managed Rankin\'s post-production workflow, coordinating wide image edits for final selection while securing subject clearances and executing all captioning and credit gathering.' },
+  { src: '/gallery/Caroline Saulnier by Rankin 2012, published by Rankin Photography Ltd.png', caption: 'Caroline Saulnier Book: © Rankin — Managed Rankin\'s post-production workflow, coordinating wide image edits for final selection while securing subject clearances and executing all captioning and credit gathering.' },
+  { src: '/gallery/More by Rankin, A retrospective 2013, Published by teNeues .png', caption: 'More Book: © Rankin — Managed Rankin\'s post-production workflow and archival research (this is a retrospective book), coordinating wide image edits, negative selection, drum scanning, while collating all captioning and credit gathering and securing subject clearances.' },
+  { src: '/gallery/F*ck Y*u Rankin, 2014, Published by Rankin Publishing Ltd.png', caption: 'F**K Y*U Book: © Rankin — Managed Rankin\'s post-production workflow and archival research (this is a retrospective book), coordinating wide image edits, negative selection, drum scanning, while collating all captioning and credit gathering and securing subject clearances.' },
+  { src: '/gallery/New Fashion Photography, 2013, Published by Prestel.jpg', caption: 'New Fashion Photography Book, selected images: © Rankin — Liaised with various external publishers on behalf of Rankin and Barber Osgerby, managing all image contributions, captions, credits, and clearances, resulting in a personal credit in this publication.' },
 ]
 
-const caption = ({ src, caption }) => caption ?? src.split('/').pop().replace(/\.[^.]+$/, '')
+const caption = img => img.caption || ''
+
+function GallerySlide({ img, i, m }) {
+  const imgRef = useRef(null)
+  const [imgWidth, setImgWidth] = useState(null)
+  const measure = () => { if (imgRef.current) setImgWidth(imgRef.current.offsetWidth) }
+  useEffect(() => {
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [m])
+  return (
+    <div data-slide={i} style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ height: m ? '35vh' : '60vh', maxHeight: m ? 280 : 600 }}>
+        <img ref={imgRef} src={img.src} alt="" onLoad={measure} style={{ height: '100%', width: 'auto', display: 'block', objectFit: 'cover', userSelect: 'none' }} draggable={false} />
+      </div>
+      {caption(img) && <p style={{ fontSize: m ? 13 : 12, fontWeight: 400, color: '#0a0a0a', letterSpacing: '0.01em', lineHeight: 1.5, width: imgWidth ?? 'auto' }}>{caption(img)}</p>}
+    </div>
+  )
+}
 
 function Gallery({ m }) {
   const trackRef = useRef(null)
@@ -282,12 +302,7 @@ function Gallery({ m }) {
         onClick={onClick}
       >
         {images.map((img, i) => (
-          <div key={img.src} data-slide={i} style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <div style={{ height: m ? '35vh' : '60vh', maxHeight: m ? 280 : 600 }}>
-              <img src={img.src} alt="" style={{ height: '100%', width: 'auto', display: 'block', objectFit: 'cover', userSelect: 'none' }} draggable={false} />
-            </div>
-            {caption(img) && <p style={{ fontSize: m ? 13 : 12, fontWeight: 400, color: '#0a0a0a', letterSpacing: '0.01em', lineHeight: 1.4, whiteSpace: 'nowrap' }}>{caption(img)}</p>}
-          </div>
+          <GallerySlide key={img.src} img={img} i={i} m={m} />
         ))}
       </div>
     </motion.div>
@@ -385,7 +400,7 @@ function Education({ m }) {
         {cv.education.map((e, i) => (
           <motion.div key={e.degree} style={{ marginBottom: m ? 20 : 30 }} {...fade(i * 0.06)}>
             <p style={{ fontSize: m ? 'clamp(16px, 4vw, 20px)' : 'clamp(24px, 3vw, 30px)', fontWeight: 500, letterSpacing: '-0.02em', marginBottom: 2, color: '#0a0a0a' }}>{e.degree}</p>
-            <p style={{ fontSize: m ? 16 : 18, color: '#555555' }}>{e.institution} — {e.grade}</p>
+            <p style={{ fontSize: m ? 16 : 18, color: '#555555' }}>{e.grade} — {e.institution}</p>
           </motion.div>
         ))}
       </div>
@@ -463,6 +478,7 @@ function Footer({ m }) {
       </div>
       <div style={W}>
         <motion.p style={{ fontSize: m ? 12 : 13, color: '#0a0a0a', opacity: 0.4 }} {...fade(0.1)}>© {new Date().getFullYear()} Amy Peet</motion.p>
+        <motion.p style={{ fontSize: m ? 12 : 13, color: '#0a0a0a', opacity: 0.4 }} {...fade(0.15)}>References available on request</motion.p>
       </div>
     </footer>
   )
