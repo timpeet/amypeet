@@ -226,18 +226,17 @@ function Header({ m, headerRef, textWhite }) {
 }
 
 /* ── Gallery ── */
-const triennale = 'Triennale Exhibition Images: © Matteo Pasin @ Triennale Milano — Managed nearly 300 assets and oversaw onsite installation, coordinating across key stakeholders; including designers, architects, the curator, and the Triennale team—to ensure seamless delivery and onsite problem-solving.'
-
 const images = [
-  { src: '/gallery/BarberOsgerby_Alphabet_01.jpg', caption: triennale },
-  { src: '/gallery/Screenshot 2026-05-12 at 12.15.08.png', caption: triennale },
-  { src: '/gallery/Edward Barber & Jay Osgerby Portrait 2530_V01.jpg', caption: triennale },
-  { src: '/gallery/BarberOsgerbyStudio_Finals_6.jpg', caption: "Tip Ton Poster / Art Print: Image of Ed and Jay signing: © Tom Ziora for Vitra. Images of the poster: © Liz Seabrook for Vitra — Project managed the design and production of a limited-edition screen print and poster celebrating the 10th anniversary of Vitra's Tip Ton chair." },
-  { src: '/gallery/Screenshot 2026-05-10 at 09.35.28.png', caption: 'Andrew Gallimore Book: © Rankin — Managed Rankin\'s post-production workflow, coordinating wide image edits for final selection while securing subject clearances and executing all captioning and credit gathering.' },
-  { src: '/gallery/Caroline Saulnier by Rankin 2012, published by Rankin Photography Ltd.png', caption: 'Caroline Saulnier Book: © Rankin — Managed Rankin\'s post-production workflow, coordinating wide image edits for final selection while securing subject clearances and executing all captioning and credit gathering.' },
-  { src: '/gallery/More by Rankin, A retrospective 2013, Published by teNeues .png', caption: 'More Book: © Rankin — Managed Rankin\'s post-production workflow and archival research (this is a retrospective book), coordinating wide image edits, negative selection, drum scanning, while collating all captioning and credit gathering and securing subject clearances.' },
-  { src: '/gallery/F*ck Y*u Rankin, 2014, Published by Rankin Publishing Ltd.png', caption: 'F**K Y*U Book: © Rankin — Managed Rankin\'s post-production workflow and archival research (this is a retrospective book), coordinating wide image edits, negative selection, drum scanning, while collating all captioning and credit gathering and securing subject clearances.' },
-  { src: '/gallery/New Fashion Photography, 2013, Published by Prestel.jpg', caption: 'New Fashion Photography Book, selected images: © Rankin — Liaised with various external publishers on behalf of Rankin and Barber Osgerby, managing all image contributions, captions, credits, and clearances, resulting in a personal credit in this publication.' },
+  { src: '/gallery/BarberOsgerby_Alphabet_01.jpg', caption: 'Edward Barber | Jay Osgerby. Alphabet Exhibition at Triennale Milano, 18 April – 6 September 2026 / © Matteo Pasin — Managed nearly 300 assets and oversaw onsite installation. Coordinating across key stakeholders; including designers, architects, the curator and the Triennale team—to ensure seamless delivery and onsite problem-solving.' },
+  { src: '/gallery/BarberOsgerby_Alphabet_03.jpg', caption: 'Edward Barber | Jay Osgerby. Alphabet Exhibition at Triennale Milano, 18 April – 6 September 2026 / © Matteo Pasin — Managed nearly 300 assets and oversaw onsite installation. Coordinating across key stakeholders; including designers, architects, the curator and the Triennale team—to ensure seamless delivery and onsite problem-solving.' },
+  { src: '/gallery/Screenshot 2026-05-12 at 12.15.08.png', caption: 'Edward Barber | Jay Osgerby. Alphabet Exhibition Catalogue, 2026. Publisher: Electa. — Assisted founder on project selection, image editing and retouching. Delivered images, captions, credits and all copyright information. Proof reading and liaising with contributors.' },
+  { src: '/gallery/Edward Barber & Jay Osgerby Portrait 2530_V01.jpg', caption: 'Tip Ton Poster and Limited Edition Signed Print to celebrate 10th Anniversary for Vitra, 2021 / © Tom Ziora for Vitra — Project managed the design and production of a limited edition screen print and poster celebrating the 10th anniversary of the Tip Ton Chair designed for Vitra.' },
+  { src: '/gallery/BarberOsgerbyStudio_Finals_6.jpg', caption: 'Tip Ton Poster and Limited Edition Signed Print to celebrate 10th Anniversary for Vitra, 2021 / © Liz Seabrook for Vitra — Project managed the design and production of a limited edition screen print and poster celebrating the 10th anniversary of the Tip Ton Chair designed for Vitra.' },
+  { src: '/gallery/Screenshot 2026-05-10 at 09.35.28.png', caption: 'Andrew Gallimore by Rankin Book, 2014. Publisher: Rankin Photography Ltd / © Rankin — Managed Rankin\'s post-production workflow, coordinating wide image edits for final selection while securing subject clearances and executing all captioning and credit gathering.' },
+  { src: '/gallery/Caroline Saulnier by Rankin 2012, published by Rankin Photography Ltd.png', caption: 'Caroline Saulnier by Rankin Book, 2012. Publisher: Rankin Photography Ltd / © Rankin — Managed Rankin\'s post-production workflow, coordinating wide image edits for final selection while securing subject clearances and executing all captioning and credit gathering.' },
+  { src: '/gallery/More by Rankin, A retrospective 2013, Published by teNeues .png', caption: 'More by Rankin Retrospective Book, 2013. Publisher: teNeues / © Rankin — Managed Rankin\'s post-production workflow and archival research, coordinating wide image edits, negative selection, drum scanning, while collating all captioning and credit gathering and securing subject clearances.' },
+  { src: '/gallery/F*ck Y*u Rankin, 2014, Published by Rankin Publishing Ltd.png', caption: 'F**K Y*U Book, 2014. Publisher: Rankin Photography Ltd / © Rankin — Managed Rankin\'s post-production workflow and archival research, coordinating wide image edits, negative selection, drum scanning, while collating all captioning and credit gathering and securing subject clearances.' },
+  { src: '/gallery/New Fashion Photography, 2013, Published by Prestel.jpg', caption: 'New Fashion Photography Book, 2013. Publisher: Prestel / Selected images: © Rankin — Liaised with various external publishers on behalf of Rankin and Barber Osgerby, managing all image contributions, captions, credits, and clearances, resulting in a personal credit in this publication.' },
 ]
 
 const caption = img => img.caption || ''
@@ -256,7 +255,7 @@ function GallerySlide({ img, i, m }) {
       <div style={{ height: m ? '35vh' : '60vh', maxHeight: m ? 280 : 600 }}>
         <img ref={imgRef} src={img.src} alt="" onLoad={measure} style={{ height: '100%', width: 'auto', display: 'block', objectFit: 'cover', userSelect: 'none' }} draggable={false} />
       </div>
-      {caption(img) && <p style={{ fontSize: m ? 13 : 12, fontWeight: 400, color: '#0a0a0a', letterSpacing: '0.01em', lineHeight: 1.5, width: imgWidth ?? 'auto' }}>{caption(img)}</p>}
+      {caption(img) && <p style={{ fontSize: m ? 13 : 12, fontWeight: 400, color: '#0a0a0a', letterSpacing: '0.01em', lineHeight: 1.5, width: imgWidth ? (m ? Math.min(imgWidth, window.innerWidth - 40) : imgWidth) : 'auto' }}>{caption(img)}</p>}
     </div>
   )
 }
