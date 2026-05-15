@@ -23,6 +23,16 @@ export const cv = {
       ],
     },
     {
+      company: 'Barcroft Media',
+      url: 'https://www.barcroftmedia.com/',
+      role: 'Sales & Licensing Executive',
+      period: 'August 2016 – January 2017',
+      bullets: [
+        { label: 'Client Relations & Licensing', text: 'Managed client relationships across editorial picture desks, supporting image licensing, usage monitoring and revenue growth.' },
+        { label: 'Content Coordination & Administration', text: 'Worked closely with the internal picture desk to coordinate new material, maintain accurate licensing records and support junior team members.' },
+      ],
+    },
+    {
       company: 'Rankin Photography',
       url: 'https://www.rankinphoto.co.uk/',
       role: 'Archivist',
