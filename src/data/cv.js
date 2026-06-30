@@ -6,8 +6,19 @@ export const cv = {
     phone: '+44 7834 235 639',
     location: 'London, UK',
   },
-  profile: `I am a highly motivated and detail-oriented professional with extensive experience managing the creative legacies of internationally renowned talent. Combining expertise in Digital Asset Management (DAM) with a strong background in coordinating complex global projects, I excel at building and curating both physical and digital collections from the ground up. Known for a collaborative and solutions-focused approach, I thrive in fast-paced environments, confidently managing stakeholder relationships and tight deadlines to deliver exceptional results with accuracy and professionalism.`,
+  profile: `I am a highly motivated, detail-oriented professional and Content Designer with extensive experience managing the creative legacies of internationally renowned talent. Combining expertise in User-Centred Design (UCD) and digital content creation with a strong background in Digital Asset Management (DAM), I excel at structuring complex information and curating impactful physical and digital experiences from the ground up. Known for a collaborative, solutions-focused approach, I thrive in fast-paced environments, confidently managing stakeholder relationships, balancing competing priorities, and delivering accessible, evidence-based results that meet both user needs and strategic goals.`,
   experience: [
+    {
+      company: 'Big Blue Door',
+      role: 'Content Designer',
+      period: 'June 2026 – Present (freelance)',
+      bullets: [
+        { label: 'Overview', text: 'Collaborating within agile delivery teams to create, evaluate, and iterate clear, user-centred digital content for the public sector. Responsible for designing end-to-end user journeys for Westminster City Council, ensuring all digital services strictly align with Government Digital Service (GDS) standards and organisational strategy.' },
+        { label: 'Evidence-Based & Iterative Design', text: 'Utilise user research insights, and performance metrics to identify user needs and build seamless end-to-end journeys across digital and offline channels.' },
+        { label: 'Inclusivity & Accessibility', text: 'Ensure all public-facing copy and information architecture comply with accessibility regulations and GDS style guides, removing barriers to make complex council services intuitive for everyone.' },
+        { label: 'Cross-Functional Collaboration', text: 'Work closely with user researchers, service designers, and product owners from discovery to publishing to manage the full content lifecycle and clearly advocate for user-centred design decisions.' },
+      ],
+    },
     {
       company: 'Barber Osgerby',
       url: 'https://barberosgerby.com/',
